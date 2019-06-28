@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterFragment extends Fragment  {
 
-    private EditText emailEditText, passwordEditText, matriculationNumberEditText, nameEditText;
+    private EditText emailEditText, passwordEditText, nameEditText;
     private Button regBtn;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
@@ -40,7 +40,6 @@ public class RegisterFragment extends Fragment  {
         //initialise components and look for them according to their IDs
         emailEditText = getActivity().findViewById(R.id.email);
         passwordEditText = getActivity().findViewById(R.id.password);
-        matriculationNumberEditText = getActivity().findViewById(R.id.matriculation_number);
         nameEditText = getActivity().findViewById(R.id.name);
 
         regBtn = getActivity().findViewById(R.id.register);
@@ -58,10 +57,9 @@ public class RegisterFragment extends Fragment  {
     private void registerNewUser() {
         progressBar.setVisibility(View.VISIBLE);
         //get the actual String or text that the user type
-        final String email, password, matriculationNumber, name;
+        final String email, password, name;
         email = emailEditText.getText().toString();
         password = passwordEditText.getText().toString();
-        matriculationNumber = matriculationNumberEditText.getText().toString();
         name = nameEditText.getText().toString();
 
 
@@ -74,10 +72,6 @@ public class RegisterFragment extends Fragment  {
             return;
         }
 
-        if (TextUtils.isEmpty(matriculationNumber)) {
-            Toast.makeText(getActivity().getApplicationContext(), "Please enter Matriculation Number...", Toast.LENGTH_LONG).show();
-            return;
-        }
         if (TextUtils.isEmpty(name)) {
             Toast.makeText(getActivity().getApplicationContext(), "Please enter name!", Toast.LENGTH_LONG).show();
             return;
@@ -92,10 +86,6 @@ public class RegisterFragment extends Fragment  {
                             Toast.makeText(getActivity().getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
 
-
-                            //Create user details if successful.
-                            UserDetails currentUser = new UserDetails(matriculationNumber, name);
-                            currentUser.createEntry();
 
                             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                             ft.replace(R.id.content_frame, new HomeFragment());
