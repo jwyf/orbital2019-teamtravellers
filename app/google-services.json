@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "1080017845728",
-    "firebase_url": "https://obrital2019.firebaseio.com",
-    "project_id": "obrital2019",
-    "storage_bucket": "obrital2019.appspot.com"
+    "project_number": "233087407466",
+    "firebase_url": "https://travel-in-peace.firebaseio.com",
+    "project_id": "travel-in-peace",
+    "storage_bucket": "travel-in-peace.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1080017845728:android:174fb76caf366462",
+        "mobilesdk_app_id": "1:233087407466:android:174fb76caf366462",
         "android_client_info": {
           "package_name": "com.example.orbital2019"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1080017845728-onkvkt6cdf5fa86m1cssffjfuooi1p8b.apps.googleusercontent.com",
+          "client_id": "233087407466-nbdc9eipm6k5aoq33f29d4hjfdugt4cf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.orbital2019",
+            "certificate_hash": "ce1cb8f8923fc8070a6fb3d366ff94b01514a6f8"
+          }
+        },
+        {
+          "client_id": "233087407466-h893jotr9vci8vgc0m33rmg3fa0cqtpk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDSSsloUQ8CWOZnYv069h0cyQhh4k_tNsY"
+          "current_key": "AIzaSyANPz7eqjI47dxKVFwl4oK0CoEPn0bR4f8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1080017845728-onkvkt6cdf5fa86m1cssffjfuooi1p8b.apps.googleusercontent.com",
+              "client_id": "233087407466-h893jotr9vci8vgc0m33rmg3fa0cqtpk.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
