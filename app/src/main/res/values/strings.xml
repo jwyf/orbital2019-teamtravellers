@@ -164,13 +164,13 @@
     </string-array>
 
     <string-array name="Japan">
-        <item>Comms Text 1</item>
-        <item>Comms Text 2</item>
-        <item>Comms Text 3</item>
-        <item>Comms Text 4</item>
-        <item>Comms Text 5</item>
-        <item>Comms Text 6</item>
-        <item>Comms Text 7</item>
+        <item>Arrival in Tokyo, Meiji-jingu Shrine,  Nezu Museum, Shibuya Crossing, Roppongi </item>
+        <item>Asakusa, Senso-ji Temple, Asakusa-jinja Shrine, Tokyo National Museum, Imperial Palace East Garden, Late Night Shopping in Shinjuku and Ginza</item>
+        <item>Temple hopping in Southern Higashiyama, Downtown Kyoto and Fushimi-Inari </item>
+        <item>Arashiyama, Kinkaku-ji and Daitoku-ji</item>
+        <item>Kurama/Kibune and Northern Higashiyama</item>
+        <item>Return home</item>
+        <item>Good food and scenery, unique culture and best customer service in the world, what more can one ask for?</item>
     </string-array>
 
     <string-array name="Singapore">
@@ -184,13 +184,13 @@
     </string-array>
 
     <string-array name="Malaysia">
-        <item>AWP Text 1</item>
-        <item>AWP Text 2</item>
-        <item>AWP Text 3</item>
-        <item>AWP Text 4</item>
-        <item>AWP Text 5</item>
-        <item>AWP Text 6</item>
-        <item>AWP Text 7</item>
+        <item>Arrive in Langkawi, Langkawi Sunset Cruise Tour</item>
+        <item>Langkawi Island Hopping Tour</item>
+        <item>Arrive in KL / KL City Tour</item>
+        <item>Genting Highlands</item>
+        <item>Sunway Lagoon</item>
+        <item>Departure</item>
+        <item>Extremely relaxing holiday and returned home with many wonderful memories of this holiday.</item>
     </string-array>
 
     <string-array name="titles">

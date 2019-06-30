@@ -47,10 +47,10 @@ public class SubjectDetails extends AppCompatActivity {
         String[] syllabus = new String[]{};
         String[] titles = getResources().getStringArray(R.array.titles);
 
-        if (subject_selected.equalsIgnoreCase("Communication")) {
+        if (subject_selected.equalsIgnoreCase("Japan")) {
             syllabus = getResources().getStringArray(R.array.Japan);
         }
-        else if (subject_selected.equalsIgnoreCase("MSD")) {
+        else if (subject_selected.equalsIgnoreCase("Singapore")) {
             syllabus = getResources().getStringArray(R.array.Singapore);
         }
         else {
