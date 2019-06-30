@@ -37,7 +37,7 @@ public class SubjectDetails extends AppCompatActivity {
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Syllabus");
+        getSupportActionBar().setTitle("Itinerary");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -48,13 +48,13 @@ public class SubjectDetails extends AppCompatActivity {
         String[] titles = getResources().getStringArray(R.array.titles);
 
         if (subject_selected.equalsIgnoreCase("Communication")) {
-            syllabus = getResources().getStringArray(R.array.Communication);
+            syllabus = getResources().getStringArray(R.array.Japan);
         }
         else if (subject_selected.equalsIgnoreCase("MSD")) {
-            syllabus = getResources().getStringArray(R.array.MSD);
+            syllabus = getResources().getStringArray(R.array.Singapore);
         }
         else {
-            syllabus = getResources().getStringArray(R.array.AWP);
+            syllabus = getResources().getStringArray(R.array.Malaysia);
         }
 
         SubjectDetailsAdapter subjectDetailsAdapter = new SubjectDetailsAdapter(this, titles, syllabus);

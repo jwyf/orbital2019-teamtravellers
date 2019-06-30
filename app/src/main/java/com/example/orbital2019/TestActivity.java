@@ -56,7 +56,7 @@ public class TestActivity extends AppCompatActivity{
     }
 
     private void setupListView(){
-        String[] title = getResources().getStringArray(R.array.Test);
+        String[] title = getResources().getStringArray(R.array.TravelInPeace);
         String[] description = getResources().getStringArray(R.array.Description);
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, title, description);

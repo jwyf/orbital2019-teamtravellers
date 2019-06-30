@@ -44,12 +44,12 @@ public class SubjectActivity extends AppCompatActivity {
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Subject");
+        getSupportActionBar().setTitle("Sample Itineraries");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void setupListView() {
-        subjects = getResources().getStringArray(R.array.Subjects);
+        subjects = getResources().getStringArray(R.array.Countries);
 
         SubjectAdapter subjectAdapter = new SubjectAdapter(this, R.layout.subject_single_item, subjects);
 
@@ -60,19 +60,19 @@ public class SubjectActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0: {
-                        subjectPreferences.edit().putString(SUB_PREF, "Communication").apply();
+                        subjectPreferences.edit().putString(SUB_PREF, "Japan").apply();
                         Intent intent = new Intent(SubjectActivity.this, SubjectDetails.class);
                         startActivity(intent);
                         break;
                     }
                     case 1: {
-                        subjectPreferences.edit().putString(SUB_PREF, "MSD").apply();
+                        subjectPreferences.edit().putString(SUB_PREF, "Singapore").apply();
                         Intent intent = new Intent(SubjectActivity.this, SubjectDetails.class);
                         startActivity(intent);
                         break;
                     }
                     case 2: {
-                        subjectPreferences.edit().putString(SUB_PREF, "AWP").apply();
+                        subjectPreferences.edit().putString(SUB_PREF, "Malaysia").apply();
                         Intent intent = new Intent(SubjectActivity.this, SubjectDetails.class);
                         startActivity(intent);
                         break;

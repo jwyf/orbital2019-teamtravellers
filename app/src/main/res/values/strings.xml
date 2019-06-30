@@ -18,21 +18,21 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
 
-    <string-array name="Test">
-        <item> Timetable </item>
-        <item> Subjects </item>
-        <item> Faculty </item>
+    <string-array name="TravelInPeace">
+        <item> Create and customize </item>
+        <item> View trips </item>
+        <item> Remind Me! </item>
         <item> Resources </item>
     </string-array>
 
     <string-array name="Description">
-        <item> Description 1 </item>
-        <item> Description 2 </item>
-        <item> Description 3 </item>
+        <item> Enter travel preferences, get a personalized itinerary! </item>
+        <item> Access past and existing itineraries </item>
+        <item> Enable or Disable notifications for upcoming trips </item>
         <item> Description 4 </item>
     </string-array>
 
-    <string-array name="Week">
+    <string-array name="TravelWeek">
         <item> Monday </item>
         <item> Tuesday </item>
         <item> Wednesday </item>
@@ -42,122 +42,128 @@
     </string-array>
 
     <string-array name="Monday">
-        <item>Mixed Signal Design</item>
-        <item>Analog Wave Propogation</item>
-        <item>Break</item>
-        <item>CT2 Lab - A1\nMSD Lab - A2</item>
-        <item>Break</item>
-        <item>Cluster Elective</item>
-        <item>Cluster Elective Lab/Tut</item>
+        <item>Landing in Singapore Airport</item>
+        <item>Check-in to Mandarin Orchard Hotel</item>
+        <item>Explore Orchard Road</item>
+        <item>Lunch</item>
+        <item>Singapore Botanic Gardens</item>
+        <item>Dinner at The Halia</item>
+        <item>Rest for the night</item>
     </string-array>
 
     <string-array name="Tuesday">
-        <item>Computer Communication Networks</item>
-        <item>Communication Theory - 2</item>
+        <item>Jurong Bird Park</item>
+        <item>Lunch</item>
+        <item>Bus ride to Science Center</item>
+        <item>Science Center</item>
+        <item>Snow City</item>
         <item>Break</item>
-        <item>Computer Communication Networks</item>
-        <item>Mixed Signal Design</item>
-        <item>Break</item>
-        <item> CT2 Lab - A4\nMSD Lab - A1</item>
+        <item>Dinner and rest</item>
     </string-array>
 
     <string-array name="Wednesday">
-        <item>Antenna and Wave Propagation</item>
-        <item>Computer Communication Networks</item>
-        <item>Break</item>
-        <item>Cluster Elective</item>
-        <item>Department Elective</item>
-        <item>Break</item>
-        <item> AWP Tutorial</item>
+        <item>Arrive at Singapore Zoo</item>
+        <item>See all the animals and live shows!</item>
+        <item>Lunch break</item>
+        <item>River Safari</item>
+        <item>Dinner</item>
+        <item>Night Safari</item>
+        <item>Rest for the night</item>
     </string-array>
 
     <string-array name="Thursday">
-        <item>Antenna and Wave Propagation </item>
-        <item>Communication Theory - 2</item>
-        <item>Break</item>
-        <item>Cluster Elective</item>
-        <item>Department Elective</item>
-        <item>Break</item>
-        <item> CT2 Lab - A2\nMSD Lab - A3</item>
+        <item>Ya Kun Kaya Toast </item>
+        <item>Mint Museum of Toys</item>
+        <item>National Museum of Singapore</item>
+        <item>More Orchard Road Shopping</item>
+        <item>Marina Bay Sands - Check in</item>
+        <item>Singapore Flyer and dinner</item>
+        <item>Casino and back to hotel</item>
     </string-array>
 
     <string-array name="Friday">
-        <item> CT2 Lab - A3\nMSD Lab - A4</item>
-        <item>Break</item>
-        <item>Mixed Signal Design</item>
-        <item>Communication Theory - 2</item>
-        <item>Break</item>
-        <item>Department Elective Tut</item>
+        <item>Merlion</item>
+        <item>Images of Singapore and Madame Tussauds</item>
+        <item>Lunch break</item>
+        <item>Gardens By The Bay</item>
+        <item>Silosa Beach Resort -Check in</item>
+        <item>Sentosa Water Show and rest</item>
     </string-array>
 
     <string-array name="Saturday">
-        <item>Self Study</item>
-        <item>Break</item>
-        <item>Self Study</item>
+        <item>Universal Studios</item>
+        <item>Lunch Break</item>
+        <item>Sentosa Nature Discovery</item>
+        <item>Cable Car</item>
+        <item>Vivocity Shopping Center</item>
+        <item>Flight back home!</item>
     </string-array>
 
     <string-array name="time1">
-        <item>8:55AM - 9:50AM</item>
-        <item>9:50AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 2:55PM</item>
-        <item>2:55PM - 4:45PM</item>
+        <item>9:00AM</item>
+        <item>10:00AM - 10:30AM</item>
+        <item>10:30AM - 1:00PM</item>
+        <item>1:00PM - 2:00PM</item>
+        <item>2:00PM - 4:00PM</item>
+        <item>4:20PM - 5:30PM</item>
+        <item>6:00PM - tomorrow</item>
     </string-array>
 
     <string-array name="time2">
-        <item>8:55AM - 9:50AM</item>
-        <item>9:50AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 12:10PM</item>
-        <item>12:10PM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 3:50PM</item>
+        <item>9:30AM - 12:30PM</item>
+        <item>12:30PM - 1:20PM</item>
+        <item>1:30PM - 2:15PM</item>
+        <item>2:30PM - 4:00PM</item>
+        <item>4:00PM - 4:30PM</item>
+        <item>4:30PM - 5:00PM</item>
+        <item>5:00PM - tomorrow</item>
     </string-array>
 
     <string-array name="time3">
-        <item>8:55AM - 9:50AM</item>
-        <item>9:50AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 12:10PM</item>
-        <item>12:10PM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 3:50PM</item>
+        <item>10:00AM</item>
+        <item>10:00AM - 2:00PM</item>
+        <item>2:00PM - 3:00PM</item>
+        <item>3:00PM - 6:00PM</item>
+        <item>6:00PM - 7:00PM</item>
+        <item>7:00PM - 9:00PM</item>
+        <item>9:00PM - tomorrow</item>
     </string-array>
 
     <string-array name="time4">
-        <item>8:55AM - 9:50AM</item>
-        <item>9:50AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 12:10PM</item>
-        <item>12:10PM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 3:50PM</item>
+        <item>8:30AM - 9:20AM</item>
+        <item>9:30AM - 10:00AM</item>
+        <item>10:30AM - 11:50AM</item>
+        <item>12:00PM - 2:00PM</item>
+        <item>2:00PM - 6:00PM</item>
+        <item>6:00PM - 8:00PM</item>
+        <item>8:00PM - tomorrow</item>
     </string-array>
 
     <string-array name="time5">
-        <item>8:55AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 12:10PM</item>
-        <item>12:10PM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 3:50PM</item>
+        <item>9:00AM - 9:30AM</item>
+        <item>9:45AM - 11:15AM</item>
+        <item>11:15AM - 12:15PM</item>
+        <item>12:30PM - 5:00PM</item>
+        <item>5:00PM - 5:30PM</item>
+        <item>7:40PM - tomorrow</item>
     </string-array>
 
     <string-array name="time6">
-        <item>8:55AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 1:05PM</item>
+        <item>9:30AM - 12:30AM</item>
+        <item>12:30AM - 1:30PM</item>
+        <item>1:30PM - 2:00PM</item>
+        <item>2:00PM - 3:00PM</item>
+        <item>3:00AM - 5:00PM</item>
+        <item>7:30PM</item>
     </string-array>
 
-    <string-array name="Subjects">
-        <item>Communication Theory - 2</item>
-        <item>Mixed Signal Design</item>
-        <item>Antenna and Wave Propagation</item>
+    <string-array name="Countries">
+        <item>Japan</item>
+        <item>Singapore</item>
+        <item>Malaysia</item>
     </string-array>
 
-    <string-array name="Communication">
+    <string-array name="Japan">
         <item>Comms Text 1</item>
         <item>Comms Text 2</item>
         <item>Comms Text 3</item>
@@ -167,17 +173,17 @@
         <item>Comms Text 7</item>
     </string-array>
 
-    <string-array name="MSD">
-        <item>MSD Text 1</item>
-        <item>MSD Text 2</item>
-        <item>MSD Text 3</item>
-        <item>MSD Text 4</item>
-        <item>MSD Text 5</item>
-        <item>MSD Text 6</item>
-        <item>MSD Text 7</item>
+    <string-array name="Singapore">
+        <item>Checkin to hotel, Orchard Road</item>
+        <item>Jurong Bird Park, Science Centre, Snow City</item>
+        <item>Singapore Zoo, River Safari, Night Safari</item>
+        <item>MINT Museum of Toys, National Museum of Singapore, Marina Bay Sands, Singapore Flyer</item>
+        <item>Merlion, Gardens by the Bay, Sentosa Light show</item>
+        <item>Universal Studios</item>
+        <item>Singapore has literally left a mark on me, and I’d be happy to visit again one day.</item>
     </string-array>
 
-    <string-array name="AWP">
+    <string-array name="Malaysia">
         <item>AWP Text 1</item>
         <item>AWP Text 2</item>
         <item>AWP Text 3</item>
@@ -188,13 +194,13 @@
     </string-array>
 
     <string-array name="titles">
-        <item> Unit 1 </item>
-        <item> Unit 2 </item>
-        <item> Unit 3 </item>
-        <item> Unit 4 </item>
-        <item> Unit 5 </item>
-        <item> Recommended Books </item>
-        <item> Other books </item>
+        <item> Day 1 </item>
+        <item> Day 2 </item>
+        <item> Day 3 </item>
+        <item> Day 4 </item>
+        <item> Day 5 </item>
+        <item> Day 6 </item>
+        <item> Traveller's thoughts </item>
     </string-array>
 
     <string-array name="faculty_name">

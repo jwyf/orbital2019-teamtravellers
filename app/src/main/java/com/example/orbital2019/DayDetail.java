@@ -21,12 +21,12 @@ public class DayDetail extends AppCompatActivity {
     private ListView listView;
     private Toolbar toolbar;
 
-    public static String[] Monday;
-    public static String[] Tuesday;
-    public static String[] Wednesday;
-    public static String[] Thursday;
-    public static String[] Friday;
-    public static String[] Saturday;
+    public static String[] Day1;
+    public static String[] Day2;
+    public static String[] Day3;
+    public static String[] Day4;
+    public static String[] Day5;
+    public static String[] Day6;
 
     public static String[] Time1;
     public static String[] Time2;
@@ -62,12 +62,12 @@ public class DayDetail extends AppCompatActivity {
 
     private void setupListView() {
 
-        Monday = getResources().getStringArray(R.array.Monday);
-        Tuesday = getResources().getStringArray(R.array.Tuesday);
-        Wednesday = getResources().getStringArray(R.array.Wednesday);
-        Thursday = getResources().getStringArray(R.array.Thursday);
-        Friday = getResources().getStringArray(R.array.Friday);
-        Saturday = getResources().getStringArray(R.array.Saturday);
+        Day1 = getResources().getStringArray(R.array.Monday);
+        Day2 = getResources().getStringArray(R.array.Tuesday);
+        Day3 = getResources().getStringArray(R.array.Wednesday);
+        Day4 = getResources().getStringArray(R.array.Thursday);
+        Day5 = getResources().getStringArray(R.array.Friday;
+        Day6 = getResources().getStringArray(R.array.Saturday);
 
         Time1 = getResources().getStringArray(R.array.time1);
         Time2 = getResources().getStringArray(R.array.time2);
@@ -78,23 +78,23 @@ public class DayDetail extends AppCompatActivity {
 
         String selected_day = WeekActivity.sharedPreferences.getString(WeekActivity.SEL_DAY, null);
 
-        if (selected_day.equalsIgnoreCase("Monday")) {
-            PreferredDay = Monday;
+        if (selected_day.equalsIgnoreCase("Day1")) {
+            PreferredDay = Day1;
             PreferredTime = Time1;
-        } else if (selected_day.equalsIgnoreCase("Tuesday")) {
-            PreferredDay = Tuesday;
+        } else if (selected_day.equalsIgnoreCase("Day2")) {
+            PreferredDay = Day2;
             PreferredTime = Time2;
-        } else if (selected_day.equalsIgnoreCase("Wednesday")) {
-            PreferredDay = Wednesday;
+        } else if (selected_day.equalsIgnoreCase("Day3")) {
+            PreferredDay = Day3;
             PreferredTime = Time3;
-        } else if (selected_day.equalsIgnoreCase("Thursday")) {
-            PreferredDay = Thursday;
+        } else if (selected_day.equalsIgnoreCase("Day4")) {
+            PreferredDay = Day4;
             PreferredTime = Time4;
-        } else if (selected_day.equalsIgnoreCase("Friday")) {
-            PreferredDay = Friday;
+        } else if (selected_day.equalsIgnoreCase("Day5")) {
+            PreferredDay = Day5;
             PreferredTime = Time5;
         } else {
-            PreferredDay = Saturday;
+            PreferredDay = Day6;
             PreferredTime = Time6;
         }
 
