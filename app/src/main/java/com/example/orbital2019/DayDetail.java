@@ -1,6 +1,7 @@
 package com.example.orbital2019;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -100,6 +102,33 @@ public class DayDetail extends AppCompatActivity {
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, PreferredDay, PreferredTime);
         listView.setAdapter(simpleAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0: {
+                        Intent intent = new Intent(DayDetail.this, WeekActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 1: {
+                        Intent intent = new Intent(DayDetail.this, SubjectActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 2: {
+                        Intent intent = new Intent(DayDetail.this, FacultyActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 3: {
+                        break;
+                    }
+                    default: break;
+                }
+            }
+        });
 
     }
     public class SimpleAdapter extends BaseAdapter {
