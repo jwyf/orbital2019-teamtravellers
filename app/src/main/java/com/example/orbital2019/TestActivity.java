@@ -134,12 +134,12 @@ public class TestActivity extends AppCompatActivity{
             title.setText(titleArray[position]);
             description.setText(descriptionArray[position]);
 
-            if (titleArray[position].equalsIgnoreCase("Timetable")) {
-                imageView.setImageResource(R.drawable.ic_menu_camera);
-            } else if (titleArray[position].equalsIgnoreCase("Subjects")) {
-                imageView.setImageResource(R.drawable.ic_menu_gallery);
-            } else if (titleArray[position].equalsIgnoreCase("Faculty")) {
-                imageView.setImageResource(R.drawable.icon);
+            if (titleArray[position].equalsIgnoreCase("Create and customize")) {
+                imageView.setImageResource(R.drawable.create);
+            } else if (titleArray[position].equalsIgnoreCase("View trips")) {
+                imageView.setImageResource(R.drawable.view);
+            } else if (titleArray[position].equalsIgnoreCase("Remind me!")) {
+                imageView.setImageResource(R.drawable.reminder);
             } else {
                 imageView.setImageResource(R.drawable.logo);
             }
