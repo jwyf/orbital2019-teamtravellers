@@ -33,12 +33,12 @@
     </string-array>
 
     <string-array name="TravelWeek">
-        <item> Monday </item>
-        <item> Tuesday </item>
-        <item> Wednesday </item>
-        <item> Thursday </item>
-        <item> Friday </item>
-        <item> Saturday </item>
+        <item> Day 1 </item>
+        <item> Day 2 </item>
+        <item> Day 3 </item>
+        <item> Day 4 </item>
+        <item> Day 5 </item>
+        <item> Day 6 </item>
     </string-array>
 
     <string-array name="Monday">
@@ -200,7 +200,7 @@
         <item> Day 4 </item>
         <item> Day 5 </item>
         <item> Day 6 </item>
-        <item> Traveller's thoughts </item>
+        <item> Travellers thoughts </item>
     </string-array>
 
     <string-array name="faculty_name">

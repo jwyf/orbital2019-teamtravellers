@@ -62,11 +62,11 @@ public class DayDetail extends AppCompatActivity {
 
     private void setupListView() {
 
-        Day1 = getResources().getStringArray(R.array.Monday);
+        Day1 = getResources().getStringArray(R.array.Day 1);
         Day2 = getResources().getStringArray(R.array.Tuesday);
         Day3 = getResources().getStringArray(R.array.Wednesday);
         Day4 = getResources().getStringArray(R.array.Thursday);
-        Day5 = getResources().getStringArray(R.array.Friday;
+        Day5 = getResources().getStringArray(R.array.Friday);
         Day6 = getResources().getStringArray(R.array.Saturday);
 
         Time1 = getResources().getStringArray(R.array.time1);
