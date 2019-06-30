@@ -41,7 +41,7 @@
         <item> Day 6 </item>
     </string-array>
 
-    <string-array name="Monday">
+    <string-array name="Day1">
         <item>Landing in Singapore Airport</item>
         <item>Check-in to Mandarin Orchard Hotel</item>
         <item>Explore Orchard Road</item>
@@ -51,7 +51,7 @@
         <item>Rest for the night</item>
     </string-array>
 
-    <string-array name="Tuesday">
+    <string-array name="Day2">
         <item>Jurong Bird Park</item>
         <item>Lunch</item>
         <item>Bus ride to Science Center</item>
@@ -61,7 +61,7 @@
         <item>Dinner and rest</item>
     </string-array>
 
-    <string-array name="Wednesday">
+    <string-array name="Day3">
         <item>Arrive at Singapore Zoo</item>
         <item>See all the animals and live shows!</item>
         <item>Lunch break</item>
@@ -71,7 +71,7 @@
         <item>Rest for the night</item>
     </string-array>
 
-    <string-array name="Thursday">
+    <string-array name="Day4">
         <item>Ya Kun Kaya Toast </item>
         <item>Mint Museum of Toys</item>
         <item>National Museum of Singapore</item>
@@ -81,7 +81,7 @@
         <item>Casino and back to hotel</item>
     </string-array>
 
-    <string-array name="Friday">
+    <string-array name="Day5">
         <item>Merlion</item>
         <item>Images of Singapore and Madame Tussauds</item>
         <item>Lunch break</item>
@@ -90,7 +90,7 @@
         <item>Sentosa Water Show and rest</item>
     </string-array>
 
-    <string-array name="Saturday">
+    <string-array name="Day6">
         <item>Universal Studios</item>
         <item>Lunch Break</item>
         <item>Sentosa Nature Discovery</item>
