@@ -100,6 +100,7 @@ public class DayDetail extends AppCompatActivity {
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, PreferredDay, PreferredTime);
         listView.setAdapter(simpleAdapter);
+
     }
     public class SimpleAdapter extends BaseAdapter {
 
