@@ -46,9 +46,9 @@ public class FacultyDetails extends AppCompatActivity {
     private void setupDetails() {
 
         int faculty_pos = FacultyActivity.sharedPreferences.getInt(FacultyActivity.SEL_FACULTY, 0);
-        String[] facultyNames = getResources().getStringArray(R.array.faculty_name);
+        String[] facultyNames = getResources().getStringArray(R.array.Reminders);
         int[] facultyImages = new int[]{R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery, R.drawable.ic_menu_send, R.drawable.ic_menu_slideshow};
-        int[] facultyArray = new int[]{R.array.faculty1, R.array.faculty2, R.array.faculty3, R.array.faculty4};
+        int[] facultyArray = new int[]{R.array.Reminder1, R.array.Reminder2, R.array.Reminder3, R.array.Reminder4};
         String[] facultyDetails = getResources().getStringArray(facultyArray[faculty_pos]);
         phoneNumber.setText(facultyDetails[0]);
         email.setText(facultyDetails[1]);

@@ -203,32 +203,32 @@
         <item> Travellers thoughts </item>
     </string-array>
 
-    <string-array name="faculty_name">
-        <item> Faculty 1 </item>
-        <item> Faculty 2 </item>
-        <item> Faculty 3 </item>
-        <item> Faculty 4 </item>
+    <string-array name="Reminders">
+        <item> Reminder 1 </item>
+        <item> Reminder 2 </item>
+        <item> Reminder 3 </item>
+        <item> Reminder 4 </item>
     </string-array>
 
-    <string-array name="faculty1">
+    <string-array name="Reminder1">
         <item> 417 </item>
         <item> xyz@gmail.com </item>
         <item> FacultyA, 1st Floor </item>
     </string-array>
 
-    <string-array name="faculty2">
+    <string-array name="Reminder2">
         <item> 23515 </item>
         <item> x@gmail.com </item>
         <item> FacultyA, 2st Floor </item>
     </string-array>
 
-    <string-array name="faculty3">
+    <string-array name="Reminder3">
         <item> 12541351235 </item>
         <item> y@gmail.com </item>
         <item> FacultyA, 3st Floor </item>
     </string-array>
 
-    <string-array name="faculty4">
+    <string-array name="Reminder4">
         <item> 124235 </item>
         <item> z@gmail.com </item>
         <item> FacultyA, 4st Floor </item>

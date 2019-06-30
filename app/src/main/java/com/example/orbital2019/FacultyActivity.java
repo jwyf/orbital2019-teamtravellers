@@ -43,13 +43,13 @@ public class FacultyActivity extends AppCompatActivity {
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Faculty");
+        getSupportActionBar().setTitle("Reminders");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void setupListView() {
 
-        String[] faculty_name = getResources().getStringArray(R.array.faculty_name);
+        String[] faculty_name = getResources().getStringArray(R.array.Reminders);
 
         FacultyAdapter adapter = new FacultyAdapter(this, R.layout.faculty_single_item, faculty_name);
 
