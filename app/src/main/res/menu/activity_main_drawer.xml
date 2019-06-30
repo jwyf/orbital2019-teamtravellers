@@ -11,6 +11,12 @@
 
 
         <item
+            android:id="@+id/nav_test"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="test" />
+
+
+        <item
             android:id="@+id/nav_register"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_register" />

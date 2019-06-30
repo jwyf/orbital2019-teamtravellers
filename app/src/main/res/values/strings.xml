@@ -18,6 +18,216 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
 
+    <string-array name="Test">
+        <item> Timetable </item>
+        <item> Subjects </item>
+        <item> Faculty </item>
+        <item> Resources </item>
+    </string-array>
+
+    <string-array name="Description">
+        <item> Description 1 </item>
+        <item> Description 2 </item>
+        <item> Description 3 </item>
+        <item> Description 4 </item>
+    </string-array>
+
+    <string-array name="Week">
+        <item> Monday </item>
+        <item> Tuesday </item>
+        <item> Wednesday </item>
+        <item> Thursday </item>
+        <item> Friday </item>
+        <item> Saturday </item>
+    </string-array>
+
+    <string-array name="Monday">
+        <item>Mixed Signal Design</item>
+        <item>Analog Wave Propogation</item>
+        <item>Break</item>
+        <item>CT2 Lab - A1\nMSD Lab - A2</item>
+        <item>Break</item>
+        <item>Cluster Elective</item>
+        <item>Cluster Elective Lab/Tut</item>
+    </string-array>
+
+    <string-array name="Tuesday">
+        <item>Computer Communication Networks</item>
+        <item>Communication Theory - 2</item>
+        <item>Break</item>
+        <item>Computer Communication Networks</item>
+        <item>Mixed Signal Design</item>
+        <item>Break</item>
+        <item> CT2 Lab - A4\nMSD Lab - A1</item>
+    </string-array>
+
+    <string-array name="Wednesday">
+        <item>Antenna and Wave Propagation</item>
+        <item>Computer Communication Networks</item>
+        <item>Break</item>
+        <item>Cluster Elective</item>
+        <item>Department Elective</item>
+        <item>Break</item>
+        <item> AWP Tutorial</item>
+    </string-array>
+
+    <string-array name="Thursday">
+        <item>Antenna and Wave Propagation </item>
+        <item>Communication Theory - 2</item>
+        <item>Break</item>
+        <item>Cluster Elective</item>
+        <item>Department Elective</item>
+        <item>Break</item>
+        <item> CT2 Lab - A2\nMSD Lab - A3</item>
+    </string-array>
+
+    <string-array name="Friday">
+        <item> CT2 Lab - A3\nMSD Lab - A4</item>
+        <item>Break</item>
+        <item>Mixed Signal Design</item>
+        <item>Communication Theory - 2</item>
+        <item>Break</item>
+        <item>Department Elective Tut</item>
+    </string-array>
+
+    <string-array name="Saturday">
+        <item>Self Study</item>
+        <item>Break</item>
+        <item>Self Study</item>
+    </string-array>
+
+    <string-array name="time1">
+        <item>8:55AM - 9:50AM</item>
+        <item>9:50AM - 10:45AM</item>
+        <item>10:45AM - 11:15AM</item>
+        <item>11:15AM - 1:05PM</item>
+        <item>1:05PM - 2:00PM</item>
+        <item>2:00PM - 2:55PM</item>
+        <item>2:55PM - 4:45PM</item>
+    </string-array>
+
+    <string-array name="time2">
+        <item>8:55AM - 9:50AM</item>
+        <item>9:50AM - 10:45AM</item>
+        <item>10:45AM - 11:15AM</item>
+        <item>11:15AM - 12:10PM</item>
+        <item>12:10PM - 1:05PM</item>
+        <item>1:05PM - 2:00PM</item>
+        <item>2:00PM - 3:50PM</item>
+    </string-array>
+
+    <string-array name="time3">
+        <item>8:55AM - 9:50AM</item>
+        <item>9:50AM - 10:45AM</item>
+        <item>10:45AM - 11:15AM</item>
+        <item>11:15AM - 12:10PM</item>
+        <item>12:10PM - 1:05PM</item>
+        <item>1:05PM - 2:00PM</item>
+        <item>2:00PM - 3:50PM</item>
+    </string-array>
+
+    <string-array name="time4">
+        <item>8:55AM - 9:50AM</item>
+        <item>9:50AM - 10:45AM</item>
+        <item>10:45AM - 11:15AM</item>
+        <item>11:15AM - 12:10PM</item>
+        <item>12:10PM - 1:05PM</item>
+        <item>1:05PM - 2:00PM</item>
+        <item>2:00PM - 3:50PM</item>
+    </string-array>
+
+    <string-array name="time5">
+        <item>8:55AM - 10:45AM</item>
+        <item>10:45AM - 11:15AM</item>
+        <item>11:15AM - 12:10PM</item>
+        <item>12:10PM - 1:05PM</item>
+        <item>1:05PM - 2:00PM</item>
+        <item>2:00PM - 3:50PM</item>
+    </string-array>
+
+    <string-array name="time6">
+        <item>8:55AM - 10:45AM</item>
+        <item>10:45AM - 11:15AM</item>
+        <item>11:15AM - 1:05PM</item>
+    </string-array>
+
+    <string-array name="Subjects">
+        <item>Communication Theory - 2</item>
+        <item>Mixed Signal Design</item>
+        <item>Antenna and Wave Propagation</item>
+    </string-array>
+
+    <string-array name="Communication">
+        <item>Comms Text 1</item>
+        <item>Comms Text 2</item>
+        <item>Comms Text 3</item>
+        <item>Comms Text 4</item>
+        <item>Comms Text 5</item>
+        <item>Comms Text 6</item>
+        <item>Comms Text 7</item>
+    </string-array>
+
+    <string-array name="MSD">
+        <item>MSD Text 1</item>
+        <item>MSD Text 2</item>
+        <item>MSD Text 3</item>
+        <item>MSD Text 4</item>
+        <item>MSD Text 5</item>
+        <item>MSD Text 6</item>
+        <item>MSD Text 7</item>
+    </string-array>
+
+    <string-array name="AWP">
+        <item>AWP Text 1</item>
+        <item>AWP Text 2</item>
+        <item>AWP Text 3</item>
+        <item>AWP Text 4</item>
+        <item>AWP Text 5</item>
+        <item>AWP Text 6</item>
+        <item>AWP Text 7</item>
+    </string-array>
+
+    <string-array name="titles">
+        <item> Unit 1 </item>
+        <item> Unit 2 </item>
+        <item> Unit 3 </item>
+        <item> Unit 4 </item>
+        <item> Unit 5 </item>
+        <item> Recommended Books </item>
+        <item> Other books </item>
+    </string-array>
+
+    <string-array name="faculty_name">
+        <item> Faculty 1 </item>
+        <item> Faculty 2 </item>
+        <item> Faculty 3 </item>
+        <item> Faculty 4 </item>
+    </string-array>
+
+    <string-array name="faculty1">
+        <item> 417 </item>
+        <item> xyz@gmail.com </item>
+        <item> FacultyA, 1st Floor </item>
+    </string-array>
+
+    <string-array name="faculty2">
+        <item> 23515 </item>
+        <item> x@gmail.com </item>
+        <item> FacultyA, 2st Floor </item>
+    </string-array>
+
+    <string-array name="faculty3">
+        <item> 12541351235 </item>
+        <item> y@gmail.com </item>
+        <item> FacultyA, 3st Floor </item>
+    </string-array>
+
+    <string-array name="faculty4">
+        <item> 124235 </item>
+        <item> z@gmail.com </item>
+        <item> FacultyA, 4st Floor </item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_details_list">DetailsListActivity</string>
