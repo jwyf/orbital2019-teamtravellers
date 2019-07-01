@@ -123,7 +123,7 @@ public class WeekActivity extends AppCompatActivity {
             }
 
             holder.ivLogo.setOval(true);
-            holder.ivLogo.setLetter(week[position].charAt(0));
+            holder.ivLogo.setLetter((char)(position+'0' + 1));
             holder.tvWeek.setText(week[position]);
 
             return convertView;

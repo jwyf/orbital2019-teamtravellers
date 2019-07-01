@@ -112,7 +112,7 @@ public class FacultyActivity extends AppCompatActivity {
             }
 
             holder.ivLogo.setOval(true);
-            holder.ivLogo.setLetter(faculty[position].charAt(0));
+            holder.ivLogo.setLetter((char)(position+'0' + 1));
             holder.tvFaculty.setText(faculty[position]);
 
             return convertView;
