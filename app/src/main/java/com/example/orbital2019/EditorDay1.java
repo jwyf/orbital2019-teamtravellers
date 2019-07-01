@@ -16,13 +16,8 @@ public class EditorDay1 extends AppCompatActivity {
 
     private Toolbar toolbar;
     EditText activity;
-    AutoCompleteTextView time;
+    EditText time;
     EditText location;
-    TextView tvTest;
-    TextView[] Day1;
-
-    public static SharedPreferences changePreferences;
-    public static String CHANGE_PREF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +28,8 @@ public class EditorDay1 extends AppCompatActivity {
         initToolbar();
 
         activity = (EditText) findViewById(R.id.editorActivity);
-        time = (AutoCompleteTextView) findViewById(R.id.editorTime);
+        time = (EditText) findViewById(R.id.editorTime);
         location = (EditText) findViewById(R.id.editorLocation);
-        tvTest = findViewById(R.id.tvTest);
     }
 
     private void setupUIViews() {
@@ -62,13 +56,12 @@ public class EditorDay1 extends AppCompatActivity {
                 //if (done) {
                 //item.setIcon(R.drawable.ic_action_name);
 
-                //DayDetail.Day1[0] = activity.getText().toString();
-                //changePreferences.edit().putString(CHANGE_PREF, activity.getText().toString()).apply();
                 time.setText(time.getText());
-                location.setText(location.getText());
                 Intent intent = new Intent(this, DayDetail.class);
+                intent.putExtra("activity", activity.getText().toString());
+                intent.putExtra("time", time.getText().toString());
                 startActivity(intent);
-
+                finish();
                 /*} else
                     //item.setIcon(R.drawable.ic_notdone);
                     break;*/

@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             app:mtf_labelColor="#1A237E">
 
-            <AutoCompleteTextView
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Time"
@@ -68,13 +68,6 @@
                 android:hint="Location"
                 android:textColor="#333"
                 android:textSize="15sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvTest"
-                android:text="Testing"
-                android:textSize="15sp"
-                />
 
         </com.github.florent37.materialtextfield.MaterialTextField>
 

@@ -44,6 +44,8 @@ public class DayDetail extends AppCompatActivity {
     public static SharedPreferences eventPreferences;
     public static String EVENT_PREF;
 
+    private int temp_int;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,17 @@ public class DayDetail extends AppCompatActivity {
         setupUIViews();
         initToolbar();
         setupListView();
+
+        if (getIntent().getStringExtra("activity") != null) {
+            temp_int = Integer.parseInt(DayDetail.eventPreferences.getString(DayDetail.EVENT_PREF, null).substring(10 - 1)) - 1;
+            Day1[(temp_int)] = getIntent().getStringExtra("activity") + "";
+        }
+
+        if (getIntent().getStringExtra("time") != null) {
+            temp_int = Integer.parseInt(DayDetail.eventPreferences.getString(DayDetail.EVENT_PREF, null).substring(10 - 1)) - 1;
+            Time1[(temp_int)] = getIntent().getStringExtra("time") + "";
+        }
+
     }
 
     private void setupUIViews() {
@@ -75,7 +88,6 @@ public class DayDetail extends AppCompatActivity {
         Day4 = getResources().getStringArray(R.array.Day4);
         Day5 = getResources().getStringArray(R.array.Day5);
         Day6 = getResources().getStringArray(R.array.Day6);
-Day1[0] = "help";//EditorDay1.changePreferences.getString(EditorDay1.CHANGE_PREF, null);}
         Time1 = getResources().getStringArray(R.array.time1);
         Time2 = getResources().getStringArray(R.array.time2);
         Time3 = getResources().getStringArray(R.array.time3);
@@ -116,42 +128,49 @@ Day1[0] = "help";//EditorDay1.changePreferences.getString(EditorDay1.CHANGE_PREF
                         eventPreferences.edit().putString(EVENT_PREF, "Activity 1").apply();
                         Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
+                        finish();
                         break;
                     }
                     case 1: {
                         eventPreferences.edit().putString(EVENT_PREF, "Activity 2").apply();
                         Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
+                        finish();
                         break;
                     }
                     case 2: {
                         eventPreferences.edit().putString(EVENT_PREF, "Activity 3").apply();
                         Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
+                        finish();
                         break;
                     }
                     case 3: {
                         eventPreferences.edit().putString(EVENT_PREF, "Activity 4").apply();
                         Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
+                        finish();
                         break;
                     }
                     case 4: {
                         eventPreferences.edit().putString(EVENT_PREF, "Activity 5").apply();
                         Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
+                        finish();
                         break;
                     }
                     case 5: {
                         eventPreferences.edit().putString(EVENT_PREF, "Activity 6").apply();
                         Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
+                        finish();
                         break;
                     }
                     case 6: {
                         eventPreferences.edit().putString(EVENT_PREF, "Activity 7").apply();
                         Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
+                        finish();
                         break;
                     }
                     default: break;
