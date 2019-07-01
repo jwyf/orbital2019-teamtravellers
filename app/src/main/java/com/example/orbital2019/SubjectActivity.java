@@ -44,7 +44,7 @@ public class SubjectActivity extends AppCompatActivity {
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Sample Itineraries");
+        getSupportActionBar().setTitle("Current Itineraries");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
