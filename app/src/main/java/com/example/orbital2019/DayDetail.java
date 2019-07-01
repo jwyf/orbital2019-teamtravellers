@@ -2,6 +2,7 @@ package com.example.orbital2019;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -40,6 +41,9 @@ public class DayDetail extends AppCompatActivity {
     private String[] PreferredDay;
     private String[] PreferredTime;
 
+    public static SharedPreferences eventPreferences;
+    public static String EVENT_PREF;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class DayDetail extends AppCompatActivity {
     private void setupUIViews() {
         listView = findViewById(R.id.lvDayDetail);
         toolbar = findViewById(R.id.ToolbarDayDetail);
+        eventPreferences = getSharedPreferences("Events", MODE_PRIVATE);
     }
 
     private void initToolbar() {
@@ -70,7 +75,7 @@ public class DayDetail extends AppCompatActivity {
         Day4 = getResources().getStringArray(R.array.Day4);
         Day5 = getResources().getStringArray(R.array.Day5);
         Day6 = getResources().getStringArray(R.array.Day6);
-
+Day1[0] = "help";//EditorDay1.changePreferences.getString(EditorDay1.CHANGE_PREF, null);}
         Time1 = getResources().getStringArray(R.array.time1);
         Time2 = getResources().getStringArray(R.array.time2);
         Time3 = getResources().getStringArray(R.array.time3);
@@ -108,21 +113,45 @@ public class DayDetail extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0: {
-                        Intent intent = new Intent(DayDetail.this, WeekActivity.class);
+                        eventPreferences.edit().putString(EVENT_PREF, "Activity 1").apply();
+                        Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
                         break;
                     }
                     case 1: {
-                        Intent intent = new Intent(DayDetail.this, SubjectActivity.class);
+                        eventPreferences.edit().putString(EVENT_PREF, "Activity 2").apply();
+                        Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
                         break;
                     }
                     case 2: {
-                        Intent intent = new Intent(DayDetail.this, FacultyActivity.class);
+                        eventPreferences.edit().putString(EVENT_PREF, "Activity 3").apply();
+                        Intent intent = new Intent(DayDetail.this, EditorDay1.class);
                         startActivity(intent);
                         break;
                     }
                     case 3: {
+                        eventPreferences.edit().putString(EVENT_PREF, "Activity 4").apply();
+                        Intent intent = new Intent(DayDetail.this, EditorDay1.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 4: {
+                        eventPreferences.edit().putString(EVENT_PREF, "Activity 5").apply();
+                        Intent intent = new Intent(DayDetail.this, EditorDay1.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 5: {
+                        eventPreferences.edit().putString(EVENT_PREF, "Activity 6").apply();
+                        Intent intent = new Intent(DayDetail.this, EditorDay1.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 6: {
+                        eventPreferences.edit().putString(EVENT_PREF, "Activity 7").apply();
+                        Intent intent = new Intent(DayDetail.this, EditorDay1.class);
+                        startActivity(intent);
                         break;
                     }
                     default: break;
