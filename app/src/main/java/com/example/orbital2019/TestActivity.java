@@ -52,7 +52,7 @@ public class TestActivity extends AppCompatActivity{
 
     private void initToolbar() {
      setSupportActionBar(toolbar);
-     getSupportActionBar().setTitle("Timetable app");
+     getSupportActionBar().setTitle("Travel in Peace");
     }
 
     private void setupListView(){
