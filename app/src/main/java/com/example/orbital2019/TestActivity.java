@@ -25,8 +25,6 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.widget.AdapterView;
 
-import com.example.orbital2019.intermediate.auth.LoginFragment;
-import com.example.orbital2019.intermediate.auth.RegisterFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
