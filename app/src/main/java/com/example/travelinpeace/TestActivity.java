@@ -14,9 +14,13 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.widget.AdapterView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class TestActivity extends AppCompatActivity{
     private Toolbar toolbar;
     private ListView listView;
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class TestActivity extends AppCompatActivity{
     private void setupUIView(){
         toolbar = (Toolbar)findViewById(R.id.ToolbarMain);
         listView = (ListView)findViewById(R.id.lvMain);
+        mAuth = FirebaseAuth.getInstance();
     }
 
     private void initToolbar() {
@@ -65,6 +70,9 @@ public class TestActivity extends AppCompatActivity{
                         break;
                     }
                     case 3: {
+                        mAuth.signOut();
+                        finish();
+                        startActivity(new Intent(TestActivity.this, LoginActivity.class));
                         break;
                     }
                     default: break;
