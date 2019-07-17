@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -39,8 +41,8 @@ public class TestActivity extends AppCompatActivity{
     }
 
     private void initToolbar() {
-     setSupportActionBar(toolbar);
-     getSupportActionBar().setTitle("Travel in Peace");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Travel in Peace");
     }
 
     private void setupListView(){
@@ -70,15 +72,19 @@ public class TestActivity extends AppCompatActivity{
                         break;
                     }
                     case 3: {
-                        mAuth.signOut();
-                        finish();
-                        startActivity(new Intent(TestActivity.this, LoginActivity.class));
+                        Logout();
                         break;
                     }
                     default: break;
                 }
             }
         });
+    }
+
+    private void Logout() {
+        mAuth.signOut();
+        finish();
+        startActivity(new Intent(TestActivity.this, LoginActivity.class));
     }
 
     public class SimpleAdapter extends BaseAdapter{
@@ -136,5 +142,26 @@ public class TestActivity extends AppCompatActivity{
             }
             return convertView;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.logoutMenu: {
+                Logout();
+                break;
+            }
+            case R.id.profileMenu: {
+                startActivity(new Intent(TestActivity.this, ProfileActivity.class));
+                break;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
