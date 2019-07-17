@@ -1,4 +1,4 @@
-package com.example.orbital2019;
+package com.example.travelinpeace;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.orbital2019.Utils.LetterImageView;
+import com.example.travelinpeace.Utils.LetterImageView;
 
 public class SubjectActivity extends AppCompatActivity {
 

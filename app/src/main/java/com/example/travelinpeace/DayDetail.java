@@ -1,4 +1,4 @@
-package com.example.orbital2019;
+package com.example.travelinpeace;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,15 +9,13 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.example.orbital2019.Utils.LetterImageView;
+import com.example.travelinpeace.Utils.LetterImageView;
 
 public class DayDetail extends AppCompatActivity {
 

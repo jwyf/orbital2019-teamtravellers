@@ -1,4 +1,4 @@
-package com.example.orbital2019;
+package com.example.travelinpeace;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -9,11 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import javax.security.auth.Subject;
 
 public class SubjectDetails extends AppCompatActivity {
 

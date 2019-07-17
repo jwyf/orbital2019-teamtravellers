@@ -1,4 +1,4 @@
-package com.example.orbital2019;
+package com.example.travelinpeace;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,9 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
-import com.example.orbital2019.Utils.LetterImageView;
-
-import org.w3c.dom.Text;
+import com.example.travelinpeace.Utils.LetterImageView;
 
 public class WeekActivity extends AppCompatActivity {
 

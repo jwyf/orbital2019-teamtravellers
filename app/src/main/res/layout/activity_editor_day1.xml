@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#C5CAE9"
-    tools:context="com.example.orbital2019.EditorDay1">
+    tools:context="com.example.travelinpeace.EditorDay1">
 
     <LinearLayout
         android:layout_width="match_parent"

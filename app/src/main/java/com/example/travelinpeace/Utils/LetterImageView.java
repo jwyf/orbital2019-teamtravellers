@@ -1,4 +1,4 @@
-package com.example.orbital2019.Utils;
+package com.example.travelinpeace.Utils;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import com.example.orbital2019.R;
+import com.example.travelinpeace.R;
 
 
 import java.util.Random;
