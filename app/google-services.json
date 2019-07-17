@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "233087407466-nd6gvfq02hdjm93ud3g8gql0nhomlfrm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.orbital2019",
+            "certificate_hash": "c26019371020105c3db72cd727bb7fc2a9e38f5a"
+          }
+        },
+        {
           "client_id": "233087407466-nbdc9eipm6k5aoq33f29d4hjfdugt4cf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
