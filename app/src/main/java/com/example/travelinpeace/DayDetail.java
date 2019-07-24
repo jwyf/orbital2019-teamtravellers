@@ -3,23 +3,36 @@ package com.example.travelinpeace;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.travelinpeace.Utils.LetterImageView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.List;
 
 public class DayDetail extends AppCompatActivity {
 
-    private ListView listView;
+    //private ListView listView;
     private Toolbar toolbar;
 
     public static String[] Day1;
@@ -44,6 +57,16 @@ public class DayDetail extends AppCompatActivity {
 
     private int temp_int;
 
+    private EditText etSingleActivityName;
+    private EditText etSingleActivityTime;
+    private Button btnSingleActivity;
+    private String dayName;
+    private String dayId;
+
+    private DatabaseReference databaseActivities;
+    private ListView listViewActivities;
+    private List<DayActivities> activitiesList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +77,13 @@ public class DayDetail extends AppCompatActivity {
         initToolbar();
         setupListView();
 
+        btnSingleActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addActivity();
+            }
+        });
+
         if (getIntent().getStringExtra("activity") != null) {
             temp_int = Integer.parseInt(DayDetail.eventPreferences.getString(DayDetail.EVENT_PREF, null).substring(10 - 1)) - 1;
             Day1[(temp_int)] = getIntent().getStringExtra("activity") + "";
@@ -63,18 +93,47 @@ public class DayDetail extends AppCompatActivity {
             temp_int = Integer.parseInt(DayDetail.eventPreferences.getString(DayDetail.EVENT_PREF, null).substring(10 - 1)) - 1;
             Time1[(temp_int)] = getIntent().getStringExtra("time") + "";
         }
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        databaseActivities.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                activitiesList.clear();
+                for (DataSnapshot activitiesSnapshot : dataSnapshot.getChildren()) {
+                    DayActivities activities = activitiesSnapshot.getValue(DayActivities.class);
+                    activitiesList.add(activities);
+                }
+                DayAdapter adapter = new DayAdapter(DayDetail.this, R.layout.day_detail_single_item, activitiesList);
+                listViewActivities.setAdapter(adapter);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(DayDetail.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void setupUIViews() {
-        listView = findViewById(R.id.lvDayDetail);
+        //listView = findViewById(R.id.lvDayDetail);
         toolbar = findViewById(R.id.ToolbarDayDetail);
         eventPreferences = getSharedPreferences("Events", MODE_PRIVATE);
+        etSingleActivityName = findViewById(R.id.etSingleActivityName);
+        etSingleActivityTime = findViewById(R.id.etSingleActivityTime);
+        btnSingleActivity = findViewById(R.id.btnSingleActivity);
+
+        Intent intent = getIntent();
+        dayName = intent.getStringExtra(WeekActivity.DAY_NAME);
+        dayId = intent.getStringExtra(WeekActivity.DAY_ID);
+
+        databaseActivities = FirebaseDatabase.getInstance().getReference("activityy").child(dayId);
     }
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(WeekActivity.sharedPreferences.getString(WeekActivity.SEL_DAY, null));
+        getSupportActionBar().setTitle(dayName + " Activities");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -93,7 +152,7 @@ public class DayDetail extends AppCompatActivity {
         Time5 = getResources().getStringArray(R.array.time5);
         Time6 = getResources().getStringArray(R.array.time6);
 
-        String selected_day = WeekActivity.sharedPreferences.getString(WeekActivity.SEL_DAY, null);
+        String selected_day = WeekActivity.sharedPreferences.getString(WeekActivity.SEL_DAY, null); //get extraintent
 
         if (selected_day.equalsIgnoreCase("Day1")) {
             PreferredDay = Day1;
@@ -115,10 +174,10 @@ public class DayDetail extends AppCompatActivity {
             PreferredTime = Time6;
         }
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, PreferredDay, PreferredTime);
-        listView.setAdapter(simpleAdapter);
+//        SimpleAdapter simpleAdapter = new SimpleAdapter(this, PreferredDay, PreferredTime);
+//        listViewActivities.setAdapter(simpleAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewActivities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
@@ -177,35 +236,25 @@ public class DayDetail extends AppCompatActivity {
         });
 
     }
-    public class SimpleAdapter extends BaseAdapter {
+    public class DayAdapter extends ArrayAdapter<DayActivities> {
 
-        private Context mContext;
+        //private Context mContext;
+        private int resource;
         private LayoutInflater layoutInflater;
+        private List<DayActivities> activitiesList;
+
         private TextView subject, time;
         private String[] subjectArray;
         private String[] timeArray;
         private LetterImageView letterImageView;
 
-        public SimpleAdapter(Context context, String[] subjectArray, String[] timeArray) {
-            mContext = context;
-            this.subjectArray= subjectArray;
-            this.timeArray = timeArray;
+        public DayAdapter(Context context, int resource, List<DayActivities> activitiesList) {
+            super(context, resource, activitiesList);
+//            this.subjectArray= subjectArray;
+//            this.timeArray = timeArray;
+            this.resource = resource;
+            this.activitiesList = activitiesList;
             layoutInflater = LayoutInflater.from(context);
-        }
-
-        @Override
-        public int getCount() {
-            return subjectArray.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return subjectArray[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
         }
 
         @Override
@@ -214,15 +263,17 @@ public class DayDetail extends AppCompatActivity {
                 convertView = layoutInflater.inflate(R.layout.day_detail_single_item, null);
             }
 
-            subject = (TextView)convertView.findViewById(R.id.tvSubjectDayDetail);
-            time = (TextView)convertView.findViewById(R.id.tvTimeDayDetail);
-            letterImageView = (LetterImageView)convertView.findViewById(R.id.ivDayDetail);
+            subject = convertView.findViewById(R.id.tvSubjectDayDetail);
+            time = convertView.findViewById(R.id.tvTimeDayDetail);
+            letterImageView = convertView.findViewById(R.id.ivDayDetail);
 
-            subject.setText(subjectArray[position]);
-            time.setText(timeArray[position]);
+            DayActivities activities = activitiesList.get(position);
+
+            subject.setText(activities.getActivityName());
+            time.setText(activities.getActivityTime());
 
             letterImageView.setOval(true);
-            letterImageView.setLetter(subjectArray[position].charAt(0));
+            letterImageView.setLetter(activities.getActivityName().charAt(0));
 
             return convertView;
         }
@@ -236,5 +287,21 @@ public class DayDetail extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void addActivity() {
+        String name = etSingleActivityName.getText().toString().trim();
+        String time = etSingleActivityTime.getText().toString().trim();
+        String day = dayName;
+
+        if (!TextUtils.isEmpty(name)) {
+            String id = databaseActivities.push().getKey();
+            DayActivities activities = new DayActivities(id, name, day, time);
+            databaseActivities.child(id).setValue(activities);
+            Toast.makeText(this,"New activity added!", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this,"Activity failed!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

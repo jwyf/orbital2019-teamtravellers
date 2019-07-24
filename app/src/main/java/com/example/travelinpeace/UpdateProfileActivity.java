@@ -1,8 +1,10 @@
 package com.example.travelinpeace;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -43,6 +45,8 @@ public class UpdateProfileActivity extends AppCompatActivity {
     Uri imagePath;
     private StorageReference storageReference;
     private Toolbar toolbar;
+    private ProgressDialog progressDialog;
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -73,6 +77,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.ToolbarMain);
 
         initToolbar();
+        progressDialog = new ProgressDialog(this);
 
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -114,23 +119,31 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
                 databaseReference.setValue(userProfile);
 
-                StorageReference imageReference = storageReference.child(mAuth.getUid()).child("Images").child("Profile Pic"); //User ID/Images/Profile Pic.jpeg
-                UploadTask uploadTask = imageReference.putFile(imagePath);
-                uploadTask.addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(UpdateProfileActivity.this, "Error, profile picture upload failed", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Toast.makeText(UpdateProfileActivity.this, "Profile Picture uploaded!", Toast.LENGTH_SHORT).show();
-                        finish();
-                        startActivity(new Intent(UpdateProfileActivity.this, ProfileActivity.class));
-                    }
-                });
+                progressDialog.setMessage("Please wait for the page to refresh...");
+                progressDialog.show();
 
-                finish();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        StorageReference imageReference = storageReference.child(mAuth.getUid()).child("Images").child("Profile Pic"); //User ID/Images/Profile Pic.jpeg
+                        UploadTask uploadTask = imageReference.putFile(imagePath);
+                        uploadTask.addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(UpdateProfileActivity.this, "Error, profile picture upload failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                finish();
+                                startActivity(new Intent(UpdateProfileActivity.this, ProfileActivity.class));
+                                Toast.makeText(UpdateProfileActivity.this, "Profile updated!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        finish();
+                        progressDialog.dismiss();
+                    }
+                }, 800);
             }
         });
 
@@ -156,7 +169,18 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Update your Profile");
+        getSupportActionBar().setTitle("Edit your Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    protected void onStop() {
+        setResult(2);
+        super.onStop();
+    }
+    @Override
+    protected void onDestroy() {
+        setResult(2);
+        super.onDestroy();
     }
 }

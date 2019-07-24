@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 import com.example.travelinpeace.Utils.LetterImageView;
 
-public class FacultyActivity extends AppCompatActivity {
+public class ReminderActivity extends AppCompatActivity {
 
     private ListView listView;
     private Toolbar toolbar;
@@ -60,22 +60,22 @@ public class FacultyActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position) {
                     case 0: {
-                        startActivity(new Intent(FacultyActivity.this, FacultyDetails.class));
+                        startActivity(new Intent(ReminderActivity.this, ReminderDetails.class));
                         sharedPreferences.edit().putInt(SEL_FACULTY, 0).apply();
                         break;
                     }
                     case 1: {
-                        startActivity(new Intent(FacultyActivity.this, FacultyDetails.class));
+                        startActivity(new Intent(ReminderActivity.this, ReminderDetails.class));
                         sharedPreferences.edit().putInt(SEL_FACULTY, 1).apply();
                         break;
                     }
                     case 2: {
-                        startActivity(new Intent(FacultyActivity.this, FacultyDetails.class));
+                        startActivity(new Intent(ReminderActivity.this, ReminderDetails.class));
                         sharedPreferences.edit().putInt(SEL_FACULTY, 2).apply();
                         break;
                     }
                     case 3: {
-                        startActivity(new Intent(FacultyActivity.this, FacultyDetails.class));
+                        startActivity(new Intent(ReminderActivity.this, ReminderDetails.class));
                         sharedPreferences.edit().putInt(SEL_FACULTY, 3).apply();
                         break;
                     }
@@ -104,8 +104,8 @@ public class FacultyActivity extends AppCompatActivity {
             if (convertView == null) {
                 holder = new ViewHolder();
                 convertView = layoutInflater.inflate(resource, null);
-                holder.ivLogo = (LetterImageView)convertView.findViewById(R.id.ivLetterFaculty);
-                holder.tvFaculty = (TextView)convertView.findViewById(R.id.tvFacultyName);
+                holder.ivLogo = convertView.findViewById(R.id.ivLetterFaculty);
+                holder.tvFaculty = convertView.findViewById(R.id.tvFacultyName);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder)convertView.getTag();

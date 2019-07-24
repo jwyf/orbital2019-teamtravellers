@@ -16,12 +16,12 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ResetPassActivity" />
         <activity android:name=".RegistrationActivity" />
-        <activity android:name=".TestActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".EditorDay1" />
-        <activity android:name=".FacultyDetails" />
-        <activity android:name=".FacultyActivity" />
-        <activity android:name=".SubjectDetails" />
-        <activity android:name=".SubjectActivity" />
+        <activity android:name=".ReminderDetails" />
+        <activity android:name=".ReminderActivity" />
+        <activity android:name=".ExistingTripsDetails" />
+        <activity android:name=".ExistingTripsActivity" />
         <activity android:name=".DayDetail" />
         <activity android:name=".WeekActivity" />
         <activity

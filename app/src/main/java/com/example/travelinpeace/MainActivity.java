@@ -18,7 +18,7 @@ import android.widget.AdapterView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class TestActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity{
     private Toolbar toolbar;
     private ListView listView;
     private FirebaseAuth mAuth;
@@ -35,8 +35,8 @@ public class TestActivity extends AppCompatActivity{
     }
 
     private void setupUIView(){
-        toolbar = (Toolbar)findViewById(R.id.ToolbarMain);
-        listView = (ListView)findViewById(R.id.lvMain);
+        toolbar = findViewById(R.id.ToolbarMain);
+        listView = findViewById(R.id.lvMain);
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -57,17 +57,17 @@ public class TestActivity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0: {
-                        Intent intent = new Intent(TestActivity.this, WeekActivity.class);
+                        Intent intent = new Intent(MainActivity.this, WeekActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 1: {
-                        Intent intent = new Intent(TestActivity.this, SubjectActivity.class);
+                        Intent intent = new Intent(MainActivity.this, ExistingTripsActivity.class);
                         startActivity(intent);
                         break;
                     }
                     case 2: {
-                        Intent intent = new Intent(TestActivity.this, FacultyActivity.class);
+                        Intent intent = new Intent(MainActivity.this, ReminderActivity.class);
                         startActivity(intent);
                         break;
                     }
@@ -84,7 +84,7 @@ public class TestActivity extends AppCompatActivity{
     private void Logout() {
         mAuth.signOut();
         finish();
-        startActivity(new Intent(TestActivity.this, LoginActivity.class));
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
 
     public class SimpleAdapter extends BaseAdapter{
@@ -158,7 +158,7 @@ public class TestActivity extends AppCompatActivity{
                 break;
             }
             case R.id.profileMenu: {
-                startActivity(new Intent(TestActivity.this, ProfileActivity.class));
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                 break;
             }
         }

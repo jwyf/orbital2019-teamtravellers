@@ -24,9 +24,9 @@ public class EditorDay1 extends AppCompatActivity {
         setupUIViews();
         initToolbar();
 
-        activity = (EditText) findViewById(R.id.editorActivity);
-        time = (EditText) findViewById(R.id.editorTime);
-        location = (EditText) findViewById(R.id.editorLocation);
+        activity = findViewById(R.id.editorActivity);
+        time = findViewById(R.id.editorTime);
+        location = findViewById(R.id.editorLocation);
     }
 
     private void setupUIViews() {

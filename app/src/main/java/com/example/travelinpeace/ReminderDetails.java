@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class FacultyDetails extends AppCompatActivity {
+public class ReminderDetails extends AppCompatActivity {
 
     private CircleImageView facultyImage;
     private Toolbar toolbar;
@@ -45,7 +45,7 @@ public class FacultyDetails extends AppCompatActivity {
 
     private void setupDetails() {
 
-        int faculty_pos = FacultyActivity.sharedPreferences.getInt(FacultyActivity.SEL_FACULTY, 0);
+        int faculty_pos = ReminderActivity.sharedPreferences.getInt(ReminderActivity.SEL_FACULTY, 0);
         String[] facultyNames = getResources().getStringArray(R.array.Reminders);
         int[] facultyImages = new int[]{R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery, R.drawable.ic_menu_send, R.drawable.ic_menu_slideshow};
         int[] facultyArray = new int[]{R.array.Reminder1, R.array.Reminder2, R.array.Reminder3, R.array.Reminder4};

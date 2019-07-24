@@ -3,6 +3,7 @@ package com.example.travelinpeace;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -33,6 +34,8 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private FirebaseStorage firebaseStorage;
     private Toolbar toolbar;
+    private DatabaseReference databaseReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         initToolbar();
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference(mAuth.getUid());
+        databaseReference = firebaseDatabase.getReference(mAuth.getUid());
 
         StorageReference storageReference = firebaseStorage.getReference();
         storageReference.child(mAuth.getUid()).child("Images/Profile Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -63,6 +66,27 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
+
+        profileUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, UpdateProfileActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this, UpdatePasswordActivity.class));
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -77,21 +101,6 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
-
-        profileUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, UpdateProfileActivity.class));
-                finish();
-            }
-        });
-
-        changePassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, UpdatePasswordActivity.class));
-            }
-        });
     }
 
     @Override
@@ -101,6 +110,14 @@ public class ProfileActivity extends AppCompatActivity {
                 onBackPressed();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (resultCode == 2) {
+            finish();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void initToolbar() {

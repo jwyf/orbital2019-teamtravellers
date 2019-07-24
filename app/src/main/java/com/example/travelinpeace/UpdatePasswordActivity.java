@@ -36,7 +36,6 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
-
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +56,6 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         });
 
         //firebaseUser.updateEmail();
-
     }
 
     @Override

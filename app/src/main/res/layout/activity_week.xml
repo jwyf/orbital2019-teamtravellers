@@ -26,10 +26,34 @@
         android:layout_marginBottom="10dp"
         android:dividerHeight="10dp"
         android:divider="@null"
-        android:layout_below="@+id/ToolbarWeek"
+        android:layout_below="@+id/btnDayName"
         >
-
-
     </ListView>
+
+    <EditText
+        android:id="@+id/etDayName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ToolbarWeek"
+        android:ems="10"
+        android:hint="Day Name"
+        android:inputType="textPersonName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:dividerHeight="10dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etDayName"
+        android:id="@+id/btnDayName"
+        android:text="Add new day!"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:dividerHeight="10dp"/>
 
 </RelativeLayout>
