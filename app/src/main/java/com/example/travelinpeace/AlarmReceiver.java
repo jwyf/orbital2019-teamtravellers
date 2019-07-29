@@ -20,7 +20,7 @@ public class AlarmReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         reminderName = intent.getStringExtra(ReminderActivity.REMINDER_NAME);
-        Intent notificationIntent = new Intent(context, ReminderActivity.class);
+        Intent notificationIntent = new Intent(context, MainActivity.class);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         stackBuilder.addParentStack(MainActivity.class);
@@ -31,7 +31,7 @@ public class AlarmReceiver extends BroadcastReceiver{
         Notification.Builder builder = new Notification.Builder(context);
 
         Notification notification = builder.setContentTitle("Travel In Peace Reminder!")
-                .setContentText("You have an upcoming Trip for " + reminderName + "!")
+                .setContentText(reminderName + ": You have an upcoming Trip!")
                 .setTicker("New Message Alert!")
                 .setSmallIcon(R.drawable.icon)
                 .setContentIntent(pendingIntent).build();
