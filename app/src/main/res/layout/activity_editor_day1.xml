@@ -27,7 +27,9 @@
         <com.github.florent37.materialtextfield.MaterialTextField
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:mtf_labelColor="#1A237E">
+            app:mtf_labelColor="#1A237E"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp">
 
             <AutoCompleteTextView
                 android:layout_width="match_parent"
@@ -43,7 +45,9 @@
         <com.github.florent37.materialtextfield.MaterialTextField
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:mtf_labelColor="#1A237E">
+            app:mtf_labelColor="#1A237E"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp">
 
             <EditText
                 android:layout_width="match_parent"
@@ -56,20 +60,20 @@
 
         </com.github.florent37.materialtextfield.MaterialTextField>
 
-        <com.github.florent37.materialtextfield.MaterialTextField
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:mtf_labelColor="#1A237E">
+        <!--<com.github.florent37.materialtextfield.MaterialTextField-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:mtf_labelColor="#1A237E">-->
 
-            <EditText
-                android:id="@+id/editorLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Location"
-                android:textColor="#333"
-                android:textSize="15sp" />
+            <!--<EditText-->
+                <!--android:id="@+id/editorLocation"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="Location"-->
+                <!--android:textColor="#333"-->
+                <!--android:textSize="15sp" />-->
 
-        </com.github.florent37.materialtextfield.MaterialTextField>
+        <!--</com.github.florent37.materialtextfield.MaterialTextField>-->
 
     </LinearLayout>
 

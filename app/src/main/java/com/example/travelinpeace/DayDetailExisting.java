@@ -3,11 +3,11 @@ package com.example.travelinpeace;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,11 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,15 +30,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class DayDetail extends AppCompatActivity {
+public class DayDetailExisting extends AppCompatActivity {
 
     private Toolbar toolbar;
 
-    private EditText etSingleActivityName;
-    private EditText etSingleActivityTime;
-    private Button btnSingleActivity;
+//    private EditText etSingleActivityName;
+//    private EditText etSingleActivityTime;
+//    private Button btnSingleActivity;
     private String dayName;
     private String dayId;
     private String countryId;
@@ -48,6 +47,7 @@ public class DayDetail extends AppCompatActivity {
     private DatabaseReference databaseActivities;
     private DatabaseReference databaseActivitiesString;
     private DatabaseReference databaseSingleString;
+    private DatabaseReference databaseDays;
     private ListView listViewActivities;
     private List<DayActivities> activitiesList;
 
@@ -64,18 +64,18 @@ public class DayDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_day_detail);
+        setContentView(R.layout.activity_existing_day_detail);
 
         setupUIViews();
         initToolbar();
         setupListView();
 
-        btnSingleActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addActivity();
-            }
-        });
+//        btnSingleActivity.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                addActivity();
+//            }
+//        });
 
     }
 
@@ -90,21 +90,28 @@ public class DayDetail extends AppCompatActivity {
                     DayActivities activities = activitiesSnapshot.getValue(DayActivities.class);
                     activitiesList.add(activities);
                 }
-                DayAdapter adapter = new DayAdapter(DayDetail.this, R.layout.day_detail_single_item, activitiesList);
-                listViewActivities.setAdapter(adapter);
+                if (activitiesList.isEmpty()) {
+                    Toast.makeText(DayDetailExisting.this, dayName + " has no activity and is deleted", Toast.LENGTH_LONG).show();
+                    DayAdapter adapter = new DayAdapter(DayDetailExisting.this, R.layout.day_detail_single_item, activitiesList);
+                    listViewActivities.setAdapter(adapter);
+                }
+                else {
+                    DayAdapter adapter = new DayAdapter(DayDetailExisting.this, R.layout.day_detail_single_item, activitiesList);
+                    listViewActivities.setAdapter(adapter);
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(DayDetail.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DayDetailExisting.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void setupUIViews() {
         toolbar = findViewById(R.id.ToolbarDayDetail);
-        etSingleActivityName = findViewById(R.id.etSingleActivityName);
-        etSingleActivityTime = findViewById(R.id.etSingleActivityTime);
-        btnSingleActivity = findViewById(R.id.btnSingleActivity);
+//        etSingleActivityName = findViewById(R.id.etSingleActivityName);
+//        etSingleActivityTime = findViewById(R.id.etSingleActivityTime);
+//        btnSingleActivity = findViewById(R.id.btnSingleActivity);
         listViewActivities = findViewById(R.id.lvDayDetail);
 
         activitiesList = new ArrayList<>();
@@ -117,6 +124,7 @@ public class DayDetail extends AppCompatActivity {
         databaseActivities = FirebaseDatabase.getInstance().getReference("activity").child(dayId);
         databaseActivitiesString = FirebaseDatabase.getInstance().getReference("actString").child(countryId);
         databaseSingleString = databaseActivitiesString.child(dayId);
+        databaseDays = FirebaseDatabase.getInstance().getReference("newdays").child(countryId);
     }
 
     private void initToolbar() {
@@ -130,7 +138,7 @@ public class DayDetail extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DayActivities activities = activitiesList.get(position);
-                Intent intent = new Intent(DayDetail.this, EditorDay1.class);
+                Intent intent = new Intent(DayDetailExisting.this, EditorDay1.class);
                 intent.putExtra(ACTIVITY_NAME, activities.getActivityName());
                 intent.putExtra(ACTIVITY_NO, Integer.toString(position + 1));
                 intent.putExtra(ACTIVITY_TIME, activities.getActivityTime());
@@ -181,9 +189,46 @@ public class DayDetail extends AppCompatActivity {
         }
     }
 
+    private void showUpdateDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.addactivity_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText editTextName = dialogView.findViewById(R.id.editTextName);
+        final EditText editTextTime = dialogView.findViewById(R.id.editTextTime);
+        final Button buttonUpdate = dialogView.findViewById(R.id.buttonUpdate);
+
+        dialogBuilder.setTitle("Adding a new Activity");
+
+        final AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = editTextName.getText().toString().trim();
+                String time = editTextTime.getText().toString().trim();
+
+                if(TextUtils.isEmpty(name)) {
+                    editTextName.setError("Name of Day cannot be blank");
+                    return;
+                }
+                if(TextUtils.isEmpty(time)) {
+                    editTextTime.setError("Name of Day cannot be blank");
+                    return;
+                }
+                else {
+                    addActivity(name, time);
+                    alertDialog.dismiss();
+                }
+            }
+        });
+    }
+
     private void showDeleteDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Choose the itineraries to be deleted");
+        builder.setTitle("Choose the activities to be deleted");
 
         if (!activitiesList.isEmpty()) {
             String[] activityNames = new String[activitiesList.size()];
@@ -228,39 +273,32 @@ public class DayDetail extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.deleteconfirm, menu);
+        getMenuInflater().inflate(R.menu.adddelete, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
-            case R.id.confirmMenu: {
-                if (activitiesList.isEmpty()) {
-                    Toast.makeText(this, "Please add at least one activity for each day!", Toast.LENGTH_SHORT).show();
-                    break;
-                }
-                else {
-                    Toast.makeText(this, "New itinerary added!", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
+            case android.R.id.home : {
+                onBackPressed();
+                break;
+            }
+            case R.id.addMenu: {
+                showUpdateDialog();
                 break;
             }
             case R.id.deleteMenu: {
                 showDeleteDialog();
                 break;
             }
-            case android.R.id.home : {
-                onBackPressed();
-                break;
-            }
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void addActivity() {
-        String name = etSingleActivityName.getText().toString().trim();
-        String time = etSingleActivityTime.getText().toString().trim();
+    private void addActivity(final String name, final String time) {
+//        String name = etSingleActivityName.getText().toString().trim();
+//        String time = etSingleActivityTime.getText().toString().trim();
         String day = dayName;
 
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(time) && !TextUtils.isEmpty(day)) {
@@ -268,26 +306,26 @@ public class DayDetail extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     String currActivityString = "";
-                    String currActivityId = "";
+                    String currDayId = "";
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         DayActivitiesList dayActivitiesList = ds.getValue(DayActivitiesList.class);
                         if (dayActivitiesList.getDayId() != null && dayActivitiesList.getDayId().equals(dayId)) {
                             currActivityString = dayActivitiesList.getActivityString();
-                            currActivityId = dayActivitiesList.getDayId();
+                            currDayId = dayActivitiesList.getDayId();
                             break;
                         }
                     }
                     if (currActivityString.isEmpty()) {
-                        addNewActivityString();
+                        addNewActivityString(name, time);
                     }
                     else {
-                        updateActivityString(currActivityString, currActivityId);
+                        updateActivityString(currActivityString, currDayId, name, time);
                     }
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(DayDetail.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DayDetailExisting.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -296,17 +334,17 @@ public class DayDetail extends AppCompatActivity {
         }
     }
 
-    private void addNewActivityString() {
-        String name = etSingleActivityName.getText().toString().trim();
-        String time = etSingleActivityTime.getText().toString().trim();
+    private void addNewActivityString(String name, String time) {
+//        String name = etSingleActivityName.getText().toString().trim();
+//        String time = etSingleActivityTime.getText().toString().trim();
         DayActivitiesList dayActivitiesList = new DayActivitiesList(dayName, dayId, name);
         databaseActivitiesString.child(dayId).setValue(dayActivitiesList);
         Toast.makeText(this,"New activity added!", Toast.LENGTH_SHORT).show();
         createNewActivity(name, dayName, time);
     }
 
-    private void updateActivityString(final String currActivityString, final String currActivityId) {
-        final String name = etSingleActivityName.getText().toString().trim();
+    private void updateActivityString(final String currActivityString, final String currDayId, final String name, final String time) {
+//        final String name = etSingleActivityName.getText().toString().trim();
         databaseActivities.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -319,21 +357,30 @@ public class DayDetail extends AppCompatActivity {
                     }
                 }
                 if (isSame) {
-                    Toast.makeText(DayDetail.this,"Error: An activity with the same name already exists!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DayDetailExisting.this,"Error: An activity with the same name already exists!", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     String newString = currActivityString + ", " + name;
-                    String time = etSingleActivityTime.getText().toString().trim();
                     DayActivitiesList dayActivitiesList = new DayActivitiesList(dayName, dayId, newString);
-                    databaseActivitiesString.child(currActivityId).setValue(dayActivitiesList);
-                    Toast.makeText(DayDetail.this,"Activity updated!", Toast.LENGTH_SHORT).show();
+                    databaseActivitiesString.child(currDayId).setValue(dayActivitiesList);
+                    Toast.makeText(DayDetailExisting.this,"Activity updated!", Toast.LENGTH_SHORT).show();
                     createNewActivity(name, dayName, time);
+//                    createNewActivity(name, dayName, time);
+//                    String newString = "";
+//                    for (DataSnapshot ds1 : dataSnapshot.getChildren()) {
+//                        DayActivities dayActivities = ds1.getValue(DayActivities.class);
+//                        newString += dayActivities.getActivityName() + ", ";
+//                    }
+//                    newString = newString.substring(0, newString.length() - 2);
+//                    DayActivitiesList dayActivitiesList = new DayActivitiesList(dayName, dayId, newString);
+//                    databaseActivitiesString.child(currDayId).setValue(dayActivitiesList);
+//                    Toast.makeText(DayDetailExisting.this,"Activity updated!", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(DayDetail.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DayDetailExisting.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -343,7 +390,6 @@ public class DayDetail extends AppCompatActivity {
         DayActivities activities = new DayActivities(id, name, day, time, dayId);
         databaseActivities.child(id).setValue(activities);
     }
-
 
     private void deleteActivity(ArrayList<Integer> selectedItems) {
         for (int i : selectedItems) {
@@ -361,19 +407,20 @@ public class DayDetail extends AppCompatActivity {
                 }
                 if (newActivityString.isEmpty()) {
                     databaseSingleString.removeValue(); //deleteActString
+                    databaseDays.child(dayId).removeValue(); //deleteDay
                     finish();
                 }
                 else {
                     newActivityString = newActivityString.substring(0, newActivityString.length() - 2);
                     DayActivitiesList dayActivitiesListNew = new DayActivitiesList(dayName, dayId, newActivityString);
                     databaseSingleString.setValue(dayActivitiesListNew);
-                    Toast.makeText(DayDetail.this, "Activity deleted! Refreshing", Toast.LENGTH_LONG).show();
+                    Toast.makeText(DayDetailExisting.this, "Activity deleted! Refreshing", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(DayDetail.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DayDetailExisting.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
     }

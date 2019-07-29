@@ -5,15 +5,17 @@ public class DayActivities {
     String activityName;
     String activityDay;
     String activityTime;
+    String dayId;
 
     public DayActivities() {
     }
 
-    public DayActivities(String activityId, String activityName, String activityDay, String activityTime) {
+    public DayActivities(String activityId, String activityName, String activityDay, String activityTime, String dayId) {
         this.activityId = activityId;
         this.activityName = activityName;
         this.activityDay = activityDay;
         this.activityTime = activityTime;
+        this.dayId = dayId;
     }
 
     public String getActivityId() {
@@ -30,5 +32,9 @@ public class DayActivities {
 
     public String getActivityTime() {
         return activityTime;
+    }
+
+    public String getDayId() {
+        return dayId;
     }
 }
