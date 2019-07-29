@@ -46,6 +46,7 @@ public class NotificationActivity extends AppCompatActivity {
                 String name = etReminderName.getText().toString().trim();
                 String time = etReminderTime.getText().toString().trim();
                 setReminder(Integer.parseInt(time));
+                finish();
             }
         });
 
