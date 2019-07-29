@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewItineraryActivity"></activity>
+        <activity android:name=".NotificationActivity"></activity>
+        <activity android:name=".NewItineraryActivity" />
         <activity android:name=".UpdatePasswordActivity" />
         <activity android:name=".UpdateProfileActivity" />
         <activity android:name=".ProfileActivity" />
@@ -36,6 +37,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".AlarmReceiver">
+            <intent-filter>
+                <action android:name="travel.in.peace.action.DISPLAY_NOTIFICATION"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -22,14 +22,12 @@
         <item> Create and customize </item>
         <item> View trips </item>
         <item> Remind Me! </item>
-        <item> Resources </item>
     </string-array>
 
     <string-array name="Description">
         <item> Enter travel preferences, get a personalized itinerary! </item>
         <item> Access past and existing itineraries </item>
         <item> Enable or Disable notifications for upcoming trips </item>
-        <item> Description 4 </item>
     </string-array>
 
     <string-array name="TravelWeek">

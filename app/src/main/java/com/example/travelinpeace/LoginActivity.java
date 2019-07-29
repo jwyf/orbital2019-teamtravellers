@@ -98,20 +98,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
     private void checkEmailVerification() {
         FirebaseUser firebaseUser = mAuth.getInstance().getCurrentUser();
         Boolean emailFlag = firebaseUser.isEmailVerified();
 
-        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
-//        if (emailFlag) {
-//            finish();
-//            startActivity(new Intent(MainActivity.this, SecondActivity.class));
-//        }
-//        else {
-//            Toast.makeText(this, "Please verify your email first", Toast.LENGTH_SHORT).show();
-//            mAuth.signOut();
-//        }
+        if (emailFlag) {
+            finish();
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        }
+        else {
+            Toast.makeText(this, "Please verify your email address first", Toast.LENGTH_SHORT).show();
+            mAuth.signOut();
+        }
     }
 
 }

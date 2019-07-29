@@ -71,10 +71,6 @@ public class MainActivity extends AppCompatActivity{
                         startActivity(intent);
                         break;
                     }
-                    case 3: {
-                        Logout();
-                        break;
-                    }
                     default: break;
                 }
             }
@@ -135,11 +131,12 @@ public class MainActivity extends AppCompatActivity{
                 imageView.setImageResource(R.drawable.create);
             } else if (titleArray[position].equalsIgnoreCase("View trips")) {
                 imageView.setImageResource(R.drawable.view);
-            } else if (titleArray[position].equalsIgnoreCase("Remind me!")) {
-                imageView.setImageResource(R.drawable.reminder);
             } else {
-                imageView.setImageResource(R.drawable.logo);
+                imageView.setImageResource(R.drawable.reminder);
             }
+//            else {
+//                imageView.setImageResource(R.drawable.logo);
+//              }
             return convertView;
         }
     }

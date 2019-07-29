@@ -216,36 +216,41 @@ public class ExistingTripsActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Choose the itineraries to be deleted");
 
-        String[] countryNames = new String[countriesList.size()];
-        for (int i = 0; i < countriesList.size(); i++) {
-            countryNames[i] = countriesList.get(i).getCountriesName();
+        if (!countriesList.isEmpty()) {
+            String[] countryNames = new String[countriesList.size()];
+            for (int i = 0; i < countriesList.size(); i++) {
+                countryNames[i] = countriesList.get(i).getCountriesName();
+            }
+            boolean[] checkedItems = null; //{true, false, false, true, false};
+
+            final ArrayList<Integer> selectedItems = new ArrayList<>();
+            builder.setMultiChoiceItems(countryNames, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                    // user checked or unchecked a box
+                    if (isChecked) {
+                        //add it to the selected items
+                        selectedItems.add(which);
+                    } else {
+                        selectedItems.remove(Integer.valueOf(which));
+                    }
+                }
+            });
+
+            // add Delete and Cancel buttons
+            builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // user clicked Delete
+                    deleteCountry(selectedItems);
+                }
+            });
+            builder.setNegativeButton("Cancel", null);
         }
-        boolean[] checkedItems = null; //{true, false, false, true, false};
-
-        final ArrayList<Integer> selectedItems = new ArrayList<>();
-        builder.setMultiChoiceItems(countryNames, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                // user checked or unchecked a box
-                if (isChecked) {
-                    //add it to the selected items
-                    selectedItems.add(which);
-                }
-                else {
-                    selectedItems.remove(Integer.valueOf(which));
-                }
-            }
-        });
-
-        // add Delete and Cancel buttons
-        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // user clicked Delete
-                deleteCountry(selectedItems);
-            }
-        });
-        builder.setNegativeButton("Cancel", null);
+        else {
+            builder.setMessage("There are no items to be deleted");
+            builder.setPositiveButton("OK", null);
+        }
 
         // create and show the alert dialog
         AlertDialog dialog = builder.create();

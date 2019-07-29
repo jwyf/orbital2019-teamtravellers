@@ -76,12 +76,12 @@ public class RegistrationActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                //sendEmailVerification();
-                                sendUserData();
-                                mAuth.signOut();
-                                Toast.makeText(RegistrationActivity.this, "Successfully Registered, Profile has been uploaded!", Toast.LENGTH_SHORT).show();
-                                finish();
-                                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+                                sendEmailVerification();
+//                                sendUserData();
+//                                mAuth.signOut();
+//                                Toast.makeText(RegistrationActivity.this, "Successfully Registered, verification email has been sent!", Toast.LENGTH_SHORT).show();
+//                                finish();
+//                                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
                             }
                             else {
                                 Toast.makeText(RegistrationActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
@@ -135,8 +135,14 @@ public class RegistrationActivity extends AppCompatActivity {
         email = userEmail.getText().toString();
         age = userAge.getText().toString();
 
-        if(name.isEmpty() || password.isEmpty() || email.isEmpty() || age.isEmpty() || imagePath == null) {
+        if (imagePath == null) {
+            Toast.makeText(this, "Please select a profile picture!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (name.isEmpty() || password.isEmpty() || email.isEmpty() || age.isEmpty()) {
             Toast.makeText(this, "Please fill in all the details", Toast.LENGTH_SHORT).show();
+            return false;
         }
         else {
             result = true;

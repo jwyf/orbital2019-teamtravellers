@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/logoutMenu"
-        android:icon="@drawable/common_google_signin_btn_icon_dark"
+        android:icon="@drawable/ic_logout"
         android:orderInCategory="100"
         app:showAsAction="always"
         android:title="Logout">

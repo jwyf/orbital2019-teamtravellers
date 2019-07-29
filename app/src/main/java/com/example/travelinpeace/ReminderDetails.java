@@ -25,7 +25,7 @@ public class ReminderDetails extends AppCompatActivity {
         setupUIViews();
         initToolbar();
 
-        setupDetails();
+//        setupDetails();
     }
 
     private void setupUIViews(){
@@ -43,19 +43,19 @@ public class ReminderDetails extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    private void setupDetails() {
-
-        int faculty_pos = ReminderActivity.sharedPreferences.getInt(ReminderActivity.SEL_FACULTY, 0);
-        String[] facultyNames = getResources().getStringArray(R.array.Reminders);
-        int[] facultyImages = new int[]{R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery, R.drawable.ic_menu_send, R.drawable.ic_menu_slideshow};
-        int[] facultyArray = new int[]{R.array.Reminder1, R.array.Reminder2, R.array.Reminder3, R.array.Reminder4};
-        String[] facultyDetails = getResources().getStringArray(facultyArray[faculty_pos]);
-        phoneNumber.setText(facultyDetails[0]);
-        email.setText(facultyDetails[1]);
-        place.setText(facultyDetails[2]);
-        facultyImage.setImageResource(facultyImages[faculty_pos]);
-        facultyName.setText(facultyNames[faculty_pos]);
-    }
+//    private void setupDetails() {
+//
+//        int faculty_pos = ReminderActivity.sharedPreferences.getInt(ReminderActivity.SEL_FACULTY, 0);
+//        String[] facultyNames = getResources().getStringArray(R.array.Reminders);
+//        int[] facultyImages = new int[]{R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery, R.drawable.ic_menu_send, R.drawable.ic_menu_slideshow};
+//        int[] facultyArray = new int[]{R.array.Reminder1, R.array.Reminder2, R.array.Reminder3, R.array.Reminder4};
+//        String[] facultyDetails = getResources().getStringArray(facultyArray[faculty_pos]);
+//        phoneNumber.setText(facultyDetails[0]);
+//        email.setText(facultyDetails[1]);
+//        place.setText(facultyDetails[2]);
+//        facultyImage.setImageResource(facultyImages[faculty_pos]);
+//        facultyName.setText(facultyNames[faculty_pos]);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
