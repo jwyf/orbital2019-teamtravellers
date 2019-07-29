@@ -123,7 +123,7 @@ public class ExistingTripsActivity extends AppCompatActivity {
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Existing Itineraries");
+        getSupportActionBar().setTitle("Past & Existing Itineraries");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

@@ -15,8 +15,6 @@ public class AlarmReceiver extends BroadcastReceiver{
     private static final String CHANNEL_ID = "com.example.travelinpeace.channelId";
     private String reminderName;
 
-
-
     @Override
     public void onReceive(Context context, Intent intent) {
         reminderName = intent.getStringExtra(ReminderActivity.REMINDER_NAME);
