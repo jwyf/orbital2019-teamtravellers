@@ -98,6 +98,8 @@ public class DayDetail extends AppCompatActivity {
                 Toast.makeText(DayDetail.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 
     private void setupUIViews() {
@@ -228,24 +230,13 @@ public class DayDetail extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.deleteconfirm, menu);
+        getMenuInflater().inflate(R.menu.delete, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
-            case R.id.confirmMenu: {
-                if (activitiesList.isEmpty()) {
-                    Toast.makeText(this, "Please add at least one activity for each day!", Toast.LENGTH_SHORT).show();
-                    break;
-                }
-                else {
-                    Toast.makeText(this, "New itinerary added!", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-                break;
-            }
             case R.id.deleteMenu: {
                 showDeleteDialog();
                 break;
@@ -361,7 +352,6 @@ public class DayDetail extends AppCompatActivity {
                 }
                 if (newActivityString.isEmpty()) {
                     databaseSingleString.removeValue(); //deleteActString
-                    finish();
                 }
                 else {
                     newActivityString = newActivityString.substring(0, newActivityString.length() - 2);
