@@ -13,9 +13,13 @@ import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 
 public class AlarmReceiver extends BroadcastReceiver{
     private static final String CHANNEL_ID = "com.example.travelinpeace.channelId";
+    private String reminderName;
+
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        reminderName = intent.getStringExtra(ReminderActivity.REMINDER_NAME);
         Intent notificationIntent = new Intent(context, ReminderActivity.class);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
@@ -27,7 +31,7 @@ public class AlarmReceiver extends BroadcastReceiver{
         Notification.Builder builder = new Notification.Builder(context);
 
         Notification notification = builder.setContentTitle("Travel In Peace Reminder!")
-                .setContentText("You have an upcoming Trip!")
+                .setContentText("You have an upcoming Trip for " + reminderName + "!")
                 .setTicker("New Message Alert!")
                 .setSmallIcon(R.drawable.icon)
                 .setContentIntent(pendingIntent).build();

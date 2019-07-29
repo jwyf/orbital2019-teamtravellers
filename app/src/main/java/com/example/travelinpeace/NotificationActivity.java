@@ -31,6 +31,8 @@ public class NotificationActivity extends AppCompatActivity {
     private String reminderName;
     private String reminderId;
 
+    public static final String REMINDER_NAME = "remindername";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,7 @@ public class NotificationActivity extends AppCompatActivity {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         Intent notificationIntent = new Intent(this, AlarmReceiver.class);
+        notificationIntent.putExtra(REMINDER_NAME, reminderName);
         PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Calendar cal = Calendar.getInstance();
