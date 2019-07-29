@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class NotificationActivity extends Activity {
+public class NotificationActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private EditText etReminderName;
@@ -52,7 +53,7 @@ public class NotificationActivity extends Activity {
         etReminderName = findViewById(R.id.etReminderName);
         etReminderTime = findViewById(R.id.etReminderTime);
         btnReminder = findViewById(R.id.btnReminder);
-    }
+        }
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
