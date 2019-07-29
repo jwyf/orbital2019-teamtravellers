@@ -28,6 +28,9 @@ public class NotificationActivity extends AppCompatActivity {
     private EditText etReminderTime;
     private Button btnReminder;
 
+    private String reminderName;
+    private String reminderId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +56,17 @@ public class NotificationActivity extends AppCompatActivity {
         etReminderName = findViewById(R.id.etReminderName);
         etReminderTime = findViewById(R.id.etReminderTime);
         btnReminder = findViewById(R.id.btnReminder);
+
+        Intent intent = getIntent();
+        reminderName = intent.getStringExtra(ReminderActivity.REMINDER_NAME);
+        reminderId = intent.getStringExtra(ReminderActivity.REMINDER_ID);
+
+        etReminderName.setText(reminderName);
         }
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Reminder");
+        getSupportActionBar().setTitle("Reminder: " + reminderName);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

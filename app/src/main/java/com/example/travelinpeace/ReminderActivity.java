@@ -67,16 +67,16 @@ public class ReminderActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             reminderList.clear();
-                for (DataSnapshot reminderSnapshot : dataSnapshot.getChildren()) {
+            for (DataSnapshot reminderSnapshot : dataSnapshot.getChildren()) {
                 Reminder reminder = reminderSnapshot.getValue(Reminder.class);
                 reminderList.add(reminder);
             }
-                if (reminderList.isEmpty()) {
+            if (reminderList.isEmpty()) {
                 Toast.makeText(ReminderActivity.this, "Add your first Reminder from the top right menu!", Toast.LENGTH_LONG).show();
                 ReminderAdapter adapter = new ReminderAdapter(ReminderActivity.this, R.layout.faculty_single_item, reminderList);
                 listViewReminders.setAdapter(adapter);
             }
-                else {
+            else {
                 ReminderAdapter adapter = new ReminderAdapter(ReminderActivity.this, R.layout.faculty_single_item, reminderList);
                 listViewReminders.setAdapter(adapter);
             }
@@ -138,7 +138,7 @@ public class ReminderActivity extends AppCompatActivity {
 //                    default: break;
 //                }
                 Reminder reminder = reminderList.get(position);
-                Intent intent = new Intent(ReminderActivity.this, ReminderDetails.class);
+                Intent intent = new Intent(ReminderActivity.this, NotificationActivity.class);
                 intent.putExtra(REMINDER_NAME, reminder.getReminderName());
                 intent.putExtra(REMINDER_ID, reminder.getReminderId());
                 startActivity(intent);
