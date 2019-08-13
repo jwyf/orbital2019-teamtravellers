@@ -157,7 +157,11 @@ public class EditorDay1 extends AppCompatActivity {
                         newActivityString += dayActivities.getActivityName() + ", ";
                     }
                 }
-                if (isSame || count >= 2) {
+                if (isSame) {
+                    Toast.makeText(EditorDay1.this, "Activity details were not changed!", Toast.LENGTH_LONG).show();
+                    updateActivity(activityId, activityName, dayName, activityTime);
+                }
+                else if (count >= 2) {
                     Toast.makeText(EditorDay1.this, "Error: There already exists an activity with that name", Toast.LENGTH_LONG).show();
                     updateActivity(activityId, activityName, dayName, activityTime);
                 }
