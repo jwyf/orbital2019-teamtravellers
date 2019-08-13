@@ -56,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         initToolbar();
 
-        databaseReference = firebaseDatabase.getReference(mAuth.getUid());
+        databaseReference = firebaseDatabase.getReference("Users").child(mAuth.getUid());
 
         StorageReference storageReference = firebaseStorage.getReference();
         storageReference.child(mAuth.getUid()).child("Images/Profile Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

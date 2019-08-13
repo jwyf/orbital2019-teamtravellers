@@ -46,6 +46,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private Toolbar toolbar;
     private ProgressDialog progressDialog;
+    private DatabaseReference databaseReference;
 
 
     @Override
@@ -60,7 +61,6 @@ public class UpdateProfileActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -83,7 +83,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
 
-        final DatabaseReference databaseReference = firebaseDatabase.getReference(mAuth.getUid());
+        databaseReference = firebaseDatabase.getReference("Users").child(mAuth.getUid());
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -125,22 +125,27 @@ public class UpdateProfileActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        StorageReference imageReference = storageReference.child(mAuth.getUid()).child("Images").child("Profile Pic"); //User ID/Images/Profile Pic.jpeg
-                        UploadTask uploadTask = imageReference.putFile(imagePath);
-                        uploadTask.addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(UpdateProfileActivity.this, "Error, profile picture upload failed", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                finish();
-                                startActivity(new Intent(UpdateProfileActivity.this, ProfileActivity.class));
-                                Toast.makeText(UpdateProfileActivity.this, "Profile updated!", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                        finish();
+                        if (imagePath != null) {
+                            StorageReference imageReference = storageReference.child(mAuth.getUid()).child("Images").child("Profile Pic"); //User ID/Images/Profile Pic.jpeg
+                            UploadTask uploadTask = imageReference.putFile(imagePath);
+                            uploadTask.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(UpdateProfileActivity.this, "Error, profile picture upload failed", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    finish();
+                                    startActivity(new Intent(UpdateProfileActivity.this, ProfileActivity.class));
+                                    Toast.makeText(UpdateProfileActivity.this, "Profile updated!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                        else {
+                            finish();
+                            Toast.makeText(UpdateProfileActivity.this,"Profile updated!", Toast.LENGTH_SHORT).show();
+                        }
                         progressDialog.dismiss();
                     }
                 }, 800);
@@ -183,4 +188,5 @@ public class UpdateProfileActivity extends AppCompatActivity {
         setResult(2);
         super.onDestroy();
     }
+
 }
